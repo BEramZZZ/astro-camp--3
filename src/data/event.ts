@@ -13,6 +13,7 @@ export const event = {
       time: "09:00",
       room: "AP1",
       cta: "Save Your Place",
+      image: "/images/agenda-1.jpg",
     },
     {
       id: "cs-beyond-earth",
@@ -22,6 +23,7 @@ export const event = {
       time: "14:00",
       room: "A7",
       cta: "Join the Mission",
+      image: "/images/agenda-2.jpg",
     },
     {
       id: "arduino",
@@ -31,6 +33,13 @@ export const event = {
       time: "13:30",
       room: "A3",
       cta: "Secure Your Spot",
+      image: "/images/agenda-3.jpg",
     },
+  ],
+  socials: [
+    { id: "instagram", label: "Instagram", href: "#" },
+    { id: "tiktok", label: "TikTok", href: "#" },
+    { id: "linkedin", label: "LinkedIn", href: "#" },
+    { id: "discord", label: "Discord", href: "#" },
   ],
 };

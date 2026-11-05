@@ -21,7 +21,7 @@ export default function CtaBanner() {
       </a>
       <Formula src="/images/formula-kepler.png" rotate={-6} delay={1.5} className="left-[6%] top-20 hidden w-44 lg:block" />
       {/* keeps only the top (lit) half of the round planet */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto aspect-2/1 w-[min(95%,56rem)] overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto aspect-2/1 w-[min(95%,56rem)] overflow-hidden [mask-image:linear-gradient(to_bottom,black_70%,transparent)]">
         <Image
           src="/images/planet-purple.png"
           alt=""

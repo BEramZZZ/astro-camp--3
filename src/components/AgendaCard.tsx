@@ -23,7 +23,7 @@ export default function AgendaCard({
   cta,
 }: Props) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-card shadow-xl">
+    <article className="flex flex-col overflow-hidden rounded-xl border border-white/10 liquid-glass shadow-xl">
       <div className="relative aspect-4/3">
         <Image
           src={image}

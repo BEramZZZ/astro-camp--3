@@ -19,7 +19,7 @@ export default function ActivityCard({
 }: Props) {
   return (
     <article
-      className={`mx-auto flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-white/10 bg-card shadow-xl md:min-h-72 md:flex-row ${
+      className={`mx-auto flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-white/10 liquid-glass shadow-xl md:min-h-72 md:flex-row ${
         reverse ? "md:flex-row-reverse" : ""
       }`}
     >

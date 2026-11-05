@@ -18,7 +18,20 @@ const icons: Record<string, IconType> = {
 
 export default function Footer() {
   return (
-    <footer className="bg-space px-6 py-12">
+    <footer
+      style={{
+        paddingTop: "3.5rem",
+        backgroundImage:
+          "linear-gradient(to bottom, rgba(5,5,15,0.55), rgba(5,5,15,0.85)), url('/images/nebula.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="relative border-t-2 border-periwinkle px-6 pb-8 pt-14 shadow-[0_-20px_60px_-10px_rgba(128,133,240,0.45)]"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-periwinkle to-transparent"
+      />
       <div className="mx-auto flex max-w-5xl flex-col gap-10 md:flex-row md:justify-between">
         <div className="max-w-sm space-y-4">
           <Image
@@ -83,7 +96,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="mt-10 text-center text-xs text-white/50">
+      <p className="mx-auto mt-12 max-w-5xl border-t border-white/10 pt-6 text-center text-xs text-white/50">
         © 2026 Astro Camp 3. Organized by Astrotech. All rights reserved.
       </p>
     </footer>

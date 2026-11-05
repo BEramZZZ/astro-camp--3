@@ -6,7 +6,7 @@ import ActivityCard from "@/components/ActivityCard";
 import Agenda from "@/components/Agenda";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
-
+import RegisterModal from "@/components/RegisterModal";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
           className="relative flex flex-col gap-12 overflow-x-clip px-6 pb-24 pt-8"
         >
           <Image
-            src="/images/ship-1.jpg"
+            src="/images/ship-1.png"
             alt=""
             width={800}
             height={600}
@@ -31,14 +31,14 @@ export default function Home() {
           <ActivityCard
             title="Conferences"
             text="Ideas are meant to spark curiosity and inspire discovery. Join our conferences to explore the fascinating connections between astronomy, science and technology, exchange ideas with passionate minds, and gain new perspectives from inspiring speakers."
-            image="/images/conferences.jpg"
+            image="/images/conferences.png"
             imageAlt="A speaker presenting during a conference"
           />
 
           <ActivityCard
             title="Workshops"
             text="Knowledge is a journey best experienced together. Take part in our hands-on workshops, designed to help you develop new skills, explore tech and astronomy fields, and learn alongside students and enthusiasts who are eager to share their experience."
-            image="/images/workshops.jpg"
+            image="/images/workshops.png"
             imageAlt="Students working on laptops and electronics"
             reverse
           />
@@ -47,6 +47,7 @@ export default function Home() {
         <CtaBanner />
       </main>
       <Footer />
+      <RegisterModal />
     </>
   );
 }

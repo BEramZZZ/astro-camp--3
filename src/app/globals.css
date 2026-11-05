@@ -7,17 +7,20 @@
   --color-periwinkle: #8085f0;
   --color-cyan: #05f5dc;
   --color-card: #5a5a7e;
-  --font-display: var(--font-orbitron);
-  --font-body: var(--font-gentium);
+  --font-display: var(--font-display-src);
+  --font-body: var(--font-body-src);
   --color-lavender: #c9cbf6;
+  --color-space: #05050f;   /* replace with the Bg hex */
+  --color-plum: #3f0a58;    /* replace with the purple hex */
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-space);
 }
 
 body {
-  background: var(--color-space);
+  background: transparent;
   color: #f2f2f2;
-  font-family: var(--font-gentium), serif;
+  font-family: var(--font-body-src), sans-serif;
 }

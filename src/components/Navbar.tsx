@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-space/60 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
         <a href="#home" aria-label="Astro Camp 3 home">
           <Image
             src="/images/logo.png"

@@ -4,21 +4,12 @@ export default function CtaBanner() {
   return (
     <section
       id="cta"
-      className="relative isolate flex min-h-112 flex-col items-center justify-end overflow-hidden px-6 pb-16 text-center"
+      className="relative isolate flex min-h-[34rem] flex-col items-center justify-start overflow-hidden px-6 pt-16 text-center"
     >
-      <Image
-        src="/images/cta-planet.jpg"
-        alt=""
-        fill
-        sizes="100vw"
-        className="-z-10 object-cover object-bottom"
-      />
-      <div className="absolute inset-0 -z-10 bg-linear-to-b from-space via-transparent to-space/80" />
-
-      <h2 className="font-display text-2xl font-bold text-periwinkle sm:text-4xl">
+      <h2 className="font-display text-2xl font-bold text-white sm:text-4xl">
         Haven’t registered yet?
       </h2>
-      <p className="mt-2 font-display text-xl font-bold sm:text-3xl">
+      <p className="mt-2 font-display text-xl font-bold text-lavender sm:text-3xl">
         Reserve your seat
       </p>
       <a
@@ -27,6 +18,17 @@ export default function CtaBanner() {
       >
         Register Now
       </a>
+
+      {/* keeps only the top (lit) half of the round planet */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto aspect-2/1 w-[min(95%,56rem)] translate-y-40 overflow-hidden">
+        <Image
+          src="/images/planet-purple.png"
+          alt=""
+          fill
+          sizes="(min-width: 768px) 56rem, 95vw"
+          className="object-cover object-top"
+        />
+      </div>
     </section>
   );
 }

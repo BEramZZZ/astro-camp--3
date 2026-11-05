@@ -13,10 +13,10 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-left"
+        className="object-cover object-left [mask-image:linear-gradient(to_bottom,black_65%,transparent)]"
       />
       {/* fades the photo into the page background */}
-      <div className="absolute inset-0 bg-linear-to-b from-space/30 via-transparent to-space" />
+      <div className="absolute inset-0 bg-linear-to-b from-space/30 to-transparent" />
 
       <div className="relative z-10 flex max-w-xl flex-col items-center gap-6 px-6 pt-20 text-center md:mr-[8%]">
         <Image

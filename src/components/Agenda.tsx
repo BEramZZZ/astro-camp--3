@@ -6,7 +6,7 @@ export default function Agenda() {
   return (
     <section id="agenda" className="relative overflow-x-clip px-6 py-20">
       <Image
-        src="/images/shuttle.png"
+        src="/images/rocket.png"
         alt=""
         width={400}
         height={800}

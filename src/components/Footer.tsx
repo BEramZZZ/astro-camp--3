@@ -37,31 +37,54 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="md:text-right">
-          <h2 className="text-xl">About us</h2>
-          <ul className="mt-4 flex gap-5 md:justify-end">
-            {event.socials.map((s) => {
-              const Icon = icons[s.id];
-              return (
-                <li key={s.id}>
-                  <a
-                    href={s.href}
-                    aria-label={s.label}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-2xl transition hover:text-cyan"
-                  >
-                    <Icon />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+        <div className="flex flex-col gap-8 md:items-end md:text-right">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/60">
+              Organized by
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Astrotech club"
+              className="mt-3 inline-block transition hover:opacity-80"
+            >
+              <Image
+                src="/images/astrotech-logo.png"
+                alt="Astrotech"
+                width={512}
+                height={512}
+                className="h-auto w-28 brightness-0 invert"
+              />
+            </a>
+          </div>
+
+          <div>
+            <h2 className="text-xl">About us</h2>
+            <ul className="mt-4 flex gap-5 md:justify-end">
+              {event.socials.map((s) => {
+                const Icon = icons[s.id];
+                return (
+                  <li key={s.id}>
+                    <a
+                      href={s.href}
+                      aria-label={s.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl transition hover:text-accent"
+                    >
+                      <Icon />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
 
       <p className="mt-10 text-center text-xs text-white/50">
-        © 2026 Astro Camp 3. All rights reserved.
+        © 2026 Astro Camp 3. Organized by Astrotech. All rights reserved.
       </p>
     </footer>
   );

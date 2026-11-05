@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Exo_2, Inter } from "next/font/google";
 import "./globals.css";
+import Sprinkles from "@/components/Sprinkles";
 
 const display = Exo_2({ subsets: ["latin"], variable: "--font-display-src" });
 const body = Inter({ subsets: ["latin"], variable: "--font-body-src" });
@@ -17,11 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 bg-[url('/images/stars.png')] bg-size-[900px] bg-repeat opacity-40"
-        />
+      <body className="relative">
+        <Sprinkles />
         {children}
       </body>
     </html>

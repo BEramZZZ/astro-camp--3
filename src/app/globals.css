@@ -12,6 +12,7 @@
   --color-lavender: #c9cbf6;
   --color-space: #05050f;   /* replace with the Bg hex */
   --color-plum: #3f0a58;    /* replace with the purple hex */
+  --color-accent: #ff7a21;
 }
 
 html {
@@ -23,4 +24,55 @@ body {
   background: transparent;
   color: #f2f2f2;
   font-family: var(--font-body-src), sans-serif;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .float { animation: none; }
+}
+
+.stars {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.9), transparent),
+    radial-gradient(1px 1px at 130px 90px, rgba(255,255,255,.6), transparent),
+    radial-gradient(1.5px 1.5px at 210px 160px, rgba(255,255,255,.8), transparent),
+    radial-gradient(1px 1px at 80px 200px, rgba(200,205,255,.6), transparent),
+    radial-gradient(1px 1px at 290px 40px, rgba(255,255,255,.5), transparent);
+  background-size: 320px 260px;
+  opacity: 0.5;
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+.orbit { animation: orbit 16s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit { animation: none; }
+}
+
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(0.7); filter: brightness(1.6); }
+}
+.twinkle { animation: twinkle 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle { animation: none; }
+}
+
+@keyframes drift {
+  from { transform: translateX(-30vw) rotate(-6deg); }
+  to { transform: translateX(130vw) rotate(-6deg); }
+}
+.drift { animation: drift 28s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drift { animation: none; transform: translateX(10vw); }
 }

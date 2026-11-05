@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { event } from "@/data/event";
 import AgendaCard from "./AgendaCard";
+import Formula from "@/components/Formula";
 
 export default function Agenda() {
   return (
@@ -23,6 +24,7 @@ export default function Agenda() {
       <h2 className="text-center font-display text-3xl font-bold text-periwinkle">
         Agenda
       </h2>
+      <Formula src="/images/formula-orbit.png" rotate={5} className="right-[10%] top-12 hidden w-44 lg:block" />
 
       <div className="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-3">
         {event.agenda.map((item) => (

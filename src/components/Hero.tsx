@@ -8,7 +8,7 @@ export default function Hero() {
       className="relative flex min-h-svh items-center justify-center overflow-hidden md:justify-end"
     >
       <Image
-        src="/images/hero.jpg"
+        src="/images/hero.png"
         alt=""
         fill
         priority

@@ -7,6 +7,7 @@ import Agenda from "@/components/Agenda";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 import RegisterModal from "@/components/RegisterModal";
+import Formula from "@/components/Formula";
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
             height={600}
             className="pointer-events-none absolute -left-6 top-0 hidden h-auto w-28 md:block"
           />
+
+          <Formula src="/images/formula-resonance.png" rotate={6} delay={1} className="right-[3%] top-[38%] hidden w-44 lg:block" />
+          <Formula src="/images/formula-bohr.png" rotate={-5} delay={2} className="left-[2%] bottom-12 hidden w-44 lg:block" />
 
           <ActivityCard
             title="Conferences"

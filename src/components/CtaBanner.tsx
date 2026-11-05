@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Formula from "@/components/Formula";
 
 export default function CtaBanner() {
   return (
@@ -18,7 +19,7 @@ export default function CtaBanner() {
       >
         Register Now
       </a>
-
+      <Formula src="/images/formula-kepler.png" rotate={-6} delay={1.5} className="left-[6%] top-20 hidden w-44 lg:block" />
       {/* keeps only the top (lit) half of the round planet */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto aspect-2/1 w-[min(95%,56rem)] translate-y-40 overflow-hidden">
         <Image

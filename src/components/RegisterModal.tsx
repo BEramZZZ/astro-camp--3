@@ -12,7 +12,14 @@ import {
 type Status = "idle" | "sending" | "done" | "error";
 
 const field =
-  "w-full rounded-lg border border-white/15 bg-space/60 px-3 py-2 text-base outline-none focus:border-periwinkle";
+  "w-full rounded-lg border border-periwinkle/25 bg-white/5 px-3 py-2.5 text-base text-white outline-none transition placeholder:text-white/30 focus:border-periwinkle focus:ring-2 focus:ring-periwinkle/30 [&>option]:bg-space";
+
+const skyBg = {
+  backgroundColor: "#05050f",
+  backgroundImage:
+    "radial-gradient(ellipse at 100% 0%, rgba(128,133,240,0.28), transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(90,40,160,0.30), transparent 55%), radial-gradient(1px 1px at 30px 40px, rgba(255,255,255,.7), transparent), radial-gradient(1px 1px at 150px 110px, rgba(255,255,255,.5), transparent), radial-gradient(1.5px 1.5px at 240px 190px, rgba(255,255,255,.7), transparent)",
+  backgroundSize: "auto, auto, 280px 240px, 280px 240px, 280px 240px",
+};
 
 export default function RegisterModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -27,13 +34,12 @@ export default function RegisterModal() {
       const h = window.location.hash;
       if (!h.startsWith("#register")) return;
       const id = h.split(":")[1];
-      setValues((v) => ({ ...emptyValues, ...(status === "done" ? {} : v), sessions: id ? [id] : v.sessions }));
+      setValues((v) => ({ ...v, sessions: id ? [id] : v.sessions }));
       setOpen(true);
     };
     sync();
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -91,42 +97,68 @@ export default function RegisterModal() {
       ref={dialogRef}
       onClose={() => open && close()}
       onClick={(e) => e.target === dialogRef.current && close()}
-      className="m-auto w-[min(92vw,34rem)] rounded-2xl border border-white/10 bg-navy p-0 text-white backdrop:bg-black/70 backdrop:backdrop-blur-sm"
+      style={skyBg}
+      className="m-auto w-[min(92vw,34rem)] overflow-hidden rounded-3xl border border-periwinkle/40 p-0 text-white shadow-[0_0_60px_rgba(128,133,240,0.25)] backdrop:bg-black/80 backdrop:backdrop-blur-sm"
     >
-      <div className="max-h-[90svh] overflow-y-auto p-6 sm:p-8">
+      {/* orbit decoration */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-20 -top-20 size-52 rounded-full border border-periwinkle/30"
+      >
+        <div className="orbit absolute inset-0">
+          <span className="absolute left-1/2 top-0 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_14px_var(--color-accent)]" />
+        </div>
+        <div className="absolute inset-6 rounded-full border border-periwinkle/20" />
+      </div>
+
+      <div className="relative max-h-[90svh] overflow-y-auto p-6 sm:p-8">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="font-display text-xl font-bold text-periwinkle">
-            Register
-          </h2>
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-lavender/70">
+              {event.name}
+            </p>
+            <h2 className="mt-1 font-display text-2xl font-bold text-white">
+              Join the mission
+            </h2>
+          </div>
           <button
             type="button"
             onClick={close}
             aria-label="Close"
-            className="text-2xl leading-none text-white/70 hover:text-white"
+            className="grid size-9 shrink-0 place-items-center rounded-full border border-white/20 text-xl leading-none text-white/70 transition hover:border-periwinkle hover:text-white"
           >
             ×
           </button>
         </div>
 
         {status === "done" ? (
-          <div className="py-10 text-center" role="status">
-            <p className="font-display text-2xl font-bold text-cyan">
-              You&apos;re in!
+          <div className="py-12 text-center" role="status">
+            <div className="relative mx-auto size-24">
+              <div className="absolute inset-0 rounded-full border border-periwinkle/40" />
+              <div className="orbit absolute inset-0">
+                <span className="absolute left-1/2 top-0 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_14px_var(--color-accent)]" />
+              </div>
+              <div className="absolute inset-0 grid place-items-center text-4xl text-accent">
+                ✓
+              </div>
+            </div>
+            <p className="mt-6 font-display text-2xl font-bold">
+              Launch confirmed
             </p>
-            <p className="mt-3 text-lg">
-              Thanks {values.fullName.split(" ")[0]}, your seat is reserved.
-              See you on {event.agenda[0].date}.
+            <p className="mt-3 text-lavender">
+              Welcome aboard, {values.fullName.trim().split(" ")[0]}. Your seat
+              is reserved. See you on {event.agenda[0].date}.
             </p>
             <button
               type="button"
               onClick={close}
-              className="mt-8 rounded-xl bg-periwinkle px-6 py-2 font-display text-sm"
+              className="mt-8 rounded-xl bg-linear-to-b from-periwinkle to-[#5b5fc7] px-6 py-2.5 font-display text-sm font-medium uppercase"
             >
               Back to the site
             </button>
           </div>
         ) : (
-          <form onSubmit={onSubmit} noValidate className="mt-6 space-y-5">
+          <form onSubmit={onSubmit} noValidate className="mt-7 space-y-5">
             {/* honeypot */}
             <input
               type="text"
@@ -139,71 +171,85 @@ export default function RegisterModal() {
               className="absolute -left-[9999px]"
             />
 
-            <Field label="Full name" error={errors.fullName}>
+            <Field label="Full name" required error={errors.fullName}>
               <input
                 className={field}
                 value={values.fullName}
                 onChange={(e) => set("fullName", e.target.value)}
                 autoComplete="name"
+                placeholder="Your name"
               />
             </Field>
 
-            <Field label="Email" error={errors.email}>
+            <Field label="Email" required error={errors.email}>
               <input
                 type="email"
                 className={field}
                 value={values.email}
                 onChange={(e) => set("email", e.target.value)}
                 autoComplete="email"
+                placeholder="you@example.com"
               />
             </Field>
 
-            <Field label="Phone (optional)" error={errors.phone}>
-              <input
-                type="tel"
-                className={field}
-                value={values.phone}
-                onChange={(e) => set("phone", e.target.value)}
-                autoComplete="tel"
-              />
-            </Field>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Phone (optional)" error={errors.phone}>
+                <input
+                  type="tel"
+                  className={field}
+                  value={values.phone}
+                  onChange={(e) => set("phone", e.target.value)}
+                  autoComplete="tel"
+                  placeholder="+213 ..."
+                />
+              </Field>
 
-            <Field label="I am">
-              <select
-                className={field}
-                value={values.status}
-                onChange={(e) => set("status", e.target.value)}
-              >
-                <option value="student">A student</option>
-                <option value="other">Other</option>
-              </select>
-            </Field>
+              <Field label="I am">
+                <select
+                  className={field}
+                  value={values.status}
+                  onChange={(e) => set("status", e.target.value)}
+                >
+                  <option value="student">A student</option>
+                  <option value="other">Other</option>
+                </select>
+              </Field>
+            </div>
 
             {values.status === "student" && (
-              <Field label="University" error={errors.university}>
+              <Field label="University" required error={errors.university}>
                 <input
                   className={field}
                   value={values.university}
                   onChange={(e) => set("university", e.target.value)}
+                  placeholder="Your university"
                 />
               </Field>
             )}
 
             <fieldset>
-              <legend className="mb-2 text-sm text-white/80">Sessions</legend>
-              <div className="space-y-2">
+              <legend className={labelCls}>
+                Choose your sessions <span className="text-accent">*</span>
+              </legend>
+              <div className="mt-2 space-y-2">
                 {event.agenda.map((a) => (
-                  <label key={a.id} className="flex items-start gap-3">
+                  <label
+                    key={a.id}
+                    className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-periwinkle/60 has-checked:border-periwinkle has-checked:bg-periwinkle/15"
+                  >
                     <input
                       type="checkbox"
                       checked={values.sessions.includes(a.id)}
                       onChange={() => toggleSession(a.id)}
-                      className="mt-1 size-4 accent-periwinkle"
+                      className="peer sr-only"
                     />
-                    <span>
-                      {a.title}{" "}
-                      <span className="text-sm text-white/60">
-                        ({a.date}, {a.time})
+                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border border-white/30 text-[11px] font-bold text-transparent transition peer-checked:border-accent peer-checked:bg-accent peer-checked:text-space peer-focus-visible:ring-2 peer-focus-visible:ring-periwinkle">
+                      ✓
+                    </span>
+                    <span className="leading-snug">
+                      <span className="block">{a.title}</span>
+                      <span className="text-xs uppercase tracking-widest text-lavender/70">
+                        {a.type} · {a.date}, {a.time}
                       </span>
                     </span>
                   </label>
@@ -213,17 +259,17 @@ export default function RegisterModal() {
             </fieldset>
 
             {status === "error" && (
-              <p role="alert" className="text-sm text-red-300">
-                Something went wrong. Please try again.
+              <p role="alert" className="text-sm text-accent">
+                Signal lost. Please try again.
               </p>
             )}
 
             <button
               type="submit"
               disabled={status === "sending"}
-              className="w-full rounded-xl bg-linear-to-b from-periwinkle to-[#5b5fc7] py-3 font-display text-sm font-medium uppercase disabled:opacity-60"
+              className="w-full rounded-xl bg-linear-to-b from-periwinkle to-[#5b5fc7] py-3 font-display text-sm font-medium uppercase tracking-wider shadow-lg shadow-periwinkle/30 transition hover:brightness-110 disabled:opacity-60"
             >
-              {status === "sending" ? "Sending..." : "Reserve my seat"}
+              {status === "sending" ? "Launching..." : "Reserve my seat"}
             </button>
           </form>
         )}
@@ -232,18 +278,24 @@ export default function RegisterModal() {
   );
 }
 
+const labelCls = "text-xs uppercase tracking-widest text-lavender/80";
+
 function Field({
   label,
+  required,
   error,
   children,
 }: {
   label: string;
+  required?: boolean;
   error?: string;
   children: React.ReactNode;
 }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-sm text-white/80">{label}</span>
+      <span className={`${labelCls} mb-1.5 block`}>
+        {label} {required && <span className="text-accent">*</span>}
+      </span>
       {children}
       {error && <Err>{error}</Err>}
     </label>
@@ -252,7 +304,7 @@ function Field({
 
 function Err({ children }: { children: React.ReactNode }) {
   return (
-    <span role="alert" className="mt-1 block text-sm text-red-300">
+    <span role="alert" className="mt-1.5 block text-sm text-accent">
       {children}
     </span>
   );

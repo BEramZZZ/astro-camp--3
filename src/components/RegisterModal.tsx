@@ -121,7 +121,7 @@ export default function RegisterModal() {
         <div className="absolute inset-6 rounded-full border border-periwinkle/20" />
       </div>
 
-      <div className="relative max-h-[90svh] overflow-y-auto p-6 sm:p-8">
+      <div className="relative max-h-[90svh] overflow-y-auto no-scrollbar p-6 sm:p-8">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-lavender/70">

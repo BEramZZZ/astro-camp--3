@@ -35,7 +35,7 @@ export default function Hero() {
         </p>
         <a
           href="#register"
-          className="rounded-xl bg-linear-to-b from-periwinkle to-[#5b5fc7] px-8 py-3 font-display text-sm font-medium shadow-lg shadow-periwinkle/30 transition hover:scale-105"
+             className="glass-btn mt-8 rounded-xl px-8 py-3 font-display text-sm font-medium uppercase hover:scale-105"
         >
           Register Now
         </a>

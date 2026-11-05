@@ -7,6 +7,10 @@ export default function CtaBanner() {
       id="cta"
       className="relative isolate flex min-h-[34rem] flex-col items-center justify-start overflow-hidden px-6 pt-16 text-center"
     >
+      <div
+      aria-hidden
+      className="star-cluster pointer-events-none absolute left-1/2 top-0 -z-10 h-[24rem] w-[min(100%,52rem)] -translate-x-1/2"
+    />
       <h2 className="font-display text-2xl font-bold text-white sm:text-4xl">
         Haven’t registered yet?
       </h2>
@@ -15,7 +19,7 @@ export default function CtaBanner() {
       </p>
       <a
         href="#register"
-        className="mt-8 rounded-xl bg-linear-to-b from-periwinkle to-[#5b5fc7] px-8 py-3 font-display text-sm font-medium uppercase shadow-lg shadow-periwinkle/30 transition hover:scale-105"
+           className="glass-btn mt-8 rounded-xl px-8 py-3 font-display text-sm font-medium uppercase hover:scale-105"
       >
         Register Now
       </a>

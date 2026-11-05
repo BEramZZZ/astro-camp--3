@@ -68,7 +68,7 @@ export default function Countdown() {
           <span className="relative z-10 font-display text-2xl font-bold tabular-nums text-white sm:text-4xl md:text-5xl">
             {u.value}
           </span>
-          <span className="relative z-10 mt-1 text-[10px] uppercase tracking-widest text-periwinkle sm:text-xs">
+          <span className="relative z-10 mt-1 text-[10px] uppercase tracking-widest text-accent sm:text-xs">
             {u.label}
           </span>
         </div>

@@ -203,7 +203,7 @@ To deploy your own copy:
 Built by the **Astrotech** dev team.
 
 - Organizer: Astrotech club, ESI
-- Developer: Ramzy
+- Developer: BELAIDI Ramzy Zakaria
 
 ## License
 

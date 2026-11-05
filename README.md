@@ -196,7 +196,7 @@ To deploy your own copy:
 - [x] Apply `.glass-btn` to all buttons
 - [x] Production deployment (Vercel)
 - [x] Real links for the social icons and the Astrotech logo in the footer
-- [ ] Open Graph tags (title, image) for link previews
+- [x] Open Graph tags (title, image) for link previews
 
 ## Team
 

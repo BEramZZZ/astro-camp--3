@@ -35,7 +35,7 @@ export default function AgendaCard({
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div>
-          <p className="text-xs uppercase tracking-widest text-cyan">{type}</p>
+          <p className="text-xs uppercase tracking-widest text-accent">{type}</p>
           <h3 className="mt-1 min-h-10 font-display text-sm font-bold leading-snug">
             {title}
           </h3>

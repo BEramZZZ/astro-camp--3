@@ -191,11 +191,11 @@ To deploy your own copy:
 
 ## Roadmap
 
-- [ ] Countdown timer in the hero (Dec 26, 09:00)
-- [ ] Responsive pass on phone and tablet
-- [ ] Apply `.glass-btn` to all buttons
+- [x] Countdown timer in the hero (Dec 26, 09:00)
+- [x] Responsive pass on phone and tablet
+- [x] Apply `.glass-btn` to all buttons
 - [x] Production deployment (Vercel)
-- [ ] Real links for the social icons and the Astrotech logo in the footer
+- [x] Real links for the social icons and the Astrotech logo in the footer
 - [ ] Open Graph tags (title, image) for link previews
 
 ## Team

@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section className="relative overflow-x-clip px-6 py-20">
       <Formula src="/images/formula-emc2.png" rotate={-8} className="left-[8%] top-16 hidden w-40 lg:block" />
-      <h2 className="text-center font-display text-3xl font-bold text-accentibi">
+      <h2 className="text-center font-display text-3xl font-bold text-periwinkle">
         About the event
       </h2>
 

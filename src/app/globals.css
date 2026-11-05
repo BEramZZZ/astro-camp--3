@@ -257,3 +257,9 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+
+html,
+body {
+  overflow-x: clip;
+}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { event } from "@/data/event";
+import Countdown from "@/components/Countdown";
 
 export default function Hero() {
   return (
@@ -33,6 +34,9 @@ export default function Hero() {
         <p className="font-body text-base uppercase tracking-wide sm:text-lg">
           {event.tagline}
         </p>
+        <div className="mt-8">
+          <Countdown />
+        </div>
         <a
           href="#register"
              className="glass-btn mt-8 rounded-xl px-8 py-3 font-display text-sm font-medium uppercase hover:scale-105"

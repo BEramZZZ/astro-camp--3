@@ -34,7 +34,7 @@ export default function ActivityCard({
         />
       </div>
       <div className="flex flex-1 flex-col justify-center p-6 md:p-8">
-        <h3 className="font-display text-2xl font-bold">{title}</h3>
+        <h3 className="font-display text-2xl font-bold text-periwinkle">{title}</h3>
         <p className="mt-3 text-base leading-relaxed text-white/90">{text}</p>
       </div>
     </article>

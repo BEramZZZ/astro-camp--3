@@ -26,14 +26,36 @@ export async function POST(req: Request) {
 
   const url = process.env.SHEETS_WEBHOOK_URL;
   if (!url) {
-    console.log("REGISTRATION", row); // dev mode: no sheet yet
+    console.log("REGISTRATION (no SHEETS_WEBHOOK_URL, not saved)", row);
     return Response.json({ ok: true });
   }
 
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(row),
-  });
-  return Response.json({ ok: res.ok }, { status: res.ok ? 200 : 502 });
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ ...row, secret: process.env.SHEETS_SECRET }),
+      redirect: "follow",
+    });
+
+    const text = await res.text();
+    console.log("SHEETS REPLY", res.status, text.slice(0, 300));
+
+    let data: { status?: string } = {};
+    try {
+      data = JSON.parse(text);
+    } catch {
+      // Google returned an HTML page (login, 404 or script error)
+      return Response.json({ ok: false }, { status: 502 });
+    }
+
+    if (data.status === "duplicate")
+      return Response.json({ ok: false, duplicate: true }, { status: 409 });
+    if (data.status === "ok") return Response.json({ ok: true });
+
+    return Response.json({ ok: false }, { status: 502 });
+  } catch (err) {
+    console.log("SHEETS ERROR", err);
+    return Response.json({ ok: false }, { status: 502 });
+  }
 }

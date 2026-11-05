@@ -86,6 +86,16 @@ export default function RegisterModal() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
+
+      // Email already in the Sheet
+      if (res.status === 409) {
+        setErrors({
+          email: "This email is already registered. See you at the event!",
+        });
+        setStatus("idle");
+        return;
+      }
+
       setStatus(res.ok ? "done" : "error");
     } catch {
       setStatus("error");

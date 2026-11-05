@@ -40,6 +40,5 @@ export const event = {
     { id: "instagram", label: "Instagram", href: "https://www.instagram.com/astrotech_esi/" },
     { id: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@astrotech_esi" },
     { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/astrotech-esi" },
-    { id: "discord", label: "Discord", href: "https://discord.gg/astrotech" },
   ],
 };

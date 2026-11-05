@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Astro Camp 3",
     type: "website",
-    locale: "en_US",
+    locale: "Ecole Nationale Supérieure d'Informatique, 16270 Oued Smar, Algiers, Algeria",
     images: [
       {
         url: "/images/og.png",

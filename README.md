@@ -44,7 +44,7 @@ The site presents the event (about, agenda, conferences and workshops) and lets 
 ### Install and run
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/BEramZZZ/astro-camp--3
 cd astro-camp-3
 npm install
 npm run dev
@@ -197,6 +197,8 @@ To deploy your own copy:
 - [x] Production deployment (Vercel)
 - [x] Real links for the social icons and the Astrotech logo in the footer
 - [x] Open Graph tags (title, image) for link previews
+- [x] Send email to participent when registered
+- [x] Can't register twice
 
 ## Team
 
@@ -204,7 +206,3 @@ Built by the **Astrotech** dev team.
 
 - Organizer: Astrotech club, ESI
 - Developer: BELAIDI Ramzy Zakaria
-
-## License
-
-Add a license here (for example MIT), or state that the project is for internal club use only.
